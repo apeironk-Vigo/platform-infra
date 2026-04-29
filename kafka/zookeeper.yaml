@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: zookeeper
-        image: docker.io/bitnami/zookeeper:3.9.1
+        image: zookeeper:3.9.1
         env:
         - name: ALLOW_ANONYMOUS_LOGIN
           value: "yes"
