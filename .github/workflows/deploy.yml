@@ -1,0 +1,18 @@
+name: Deploy to K3s Cluster
+
+on:
+  push:
+    branches:
+      - main  # Trigger only when code is pushed to main
+
+jobs:
+  deploy:
+    runs-on: self-hosted  # This tells GitHub to use your Lenovo!
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Apply Kubernetes Manifests
+        run: |
+          kubectl apply -f nginx-deployment.yaml
+          kubectl apply -f nginx-service.yaml
